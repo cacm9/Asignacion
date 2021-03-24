@@ -1,0 +1,84 @@
+<html lang="es">
+
+<head>
+    <title>Asignacion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+
+    <!--alerts CSS -->
+    <link href="public/assets/plugins/sweetalert/css/sweetalert.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery library -->
+    <script src="css/jquery/js/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="public/assets/plugins/sweetalert/js/sweetalert.min.js"></script>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="alert alert-info">
+            <h3>Insertar registros a la BD desde un Archivo CSV </h3>
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-md-3 offset-md-3">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-llamadas-tab" data-toggle="pill" href="#pills-llamadas"
+                        role="tab" aria-controls="pills-llamadas" aria-selected="true">Llamadas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-visitas-tab" data-toggle="pill" href="#pills-visitas" role="tab"
+                        aria-controls="pills-visitas" aria-selected="false">Visitas</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-llamadas" role="tabpanel"
+                aria-labelledby="pills-llamadas-tab">
+                <form action="import.php" method="post" enctype="multipart/form-data" name="filesllamadas"
+                    id="filesllamadas">
+                    <div class="col-md-4 offset-md-4">
+                        <input class="form-control" type="file" name="fileLlamada" id="fileLlamada" accept=".csv">
+                        <button type="button" onclick="Procesarllamadas()" class="btn btn-primary form-control"
+                            name="btnProcesarllamadas" id="btnProcesarllamadas">Procesar Archivo LLAMADAS</button>
+                        <button type="button" onclick="uploadllamadas()" class="btn btn-success form-control"
+                            name="btnCargarllamadas" id="btnCargarllamadas">Cargar Llamadas</button>
+                        <!-- Implementando Barra de Progreso -->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div id="targetLayer" style="display:none;"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="pills-visitas" role="tabpanel" aria-labelledby="pills-visitas-tab">
+                <form action="import.php" method="post" enctype="multipart/form-data" name="filesVisitas"
+                    id="filesVisitas">
+                    <div class="col-md-4 offset-md-4">
+                        <input class="form-control" type="file" name="fileVisitas" id="fileVisitas" accept=".csv">
+                        <button type="button" onclick="ProcesarVisitas()" class="btn btn-primary form-control"
+                            name="btnProcesarVisitas" id="btnProcesarVisitas">Procesar Archivo VISITAAS</button>
+                        <button type="button" onclick="uploadVisitas()" class="btn btn-success form-control"
+                            name="btnCargarVisitas" id="btnCargarVisitas">Cargar Visitas</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script type="text/javascript" src="./views/script/import.js"></script>
